@@ -1,24 +1,22 @@
-# Add the Noi Quattro videos here
+# Spyros Diamantidis portfolio
 
-The three supplied Noi Quattro MOV files have been added to this folder as:
+Open `index.html` in a browser to view the one-page portfolio.
 
-- `noi-quattro-01.MOV` - Film 01
-- `noi-quattro-02.mov` - Film 02
-- `noi-quattro-03.MOV` - Film 03
+## Edit the copy and layout
 
-The portfolio now displays these clips in direct video players. Before publishing the site, convert each MOV to a compressed MP4 and update the `src` and `type` values in `index.html`. MP4 files are faster and work across the widest range of browsers.
+Everything visible on the site is in `index.html`.
 
-```html
-<video controls playsinline preload="metadata">
-  <source src="./media/noi-quattro-01.mp4" type="video/mp4" />
-</video>
-```
+- To change wording, edit the text between the HTML tags. For example, change the heading between `<h1>` and `</h1>` to update the main title.
+- To add, remove, or reorder a section, copy, remove, or move a whole `<section>` or `<article>` block in that file.
+- To change how the site looks, edit `styles.css`. The top `:root` block controls the black, white, and grey palette; the rest controls spacing, font sizes, and layout.
 
-Then add this to the end of `styles.css`:
+The two files are intentionally separated: `index.html` is the content and structure, while `styles.css` is the visual design.
 
-```css
-.reel-card video { display:block; width:100%; height:380px; object-fit:cover; background:#000; }
-@media (max-width:760px) { .reel-card video { height:430px; } }
-```
+## Media to add
 
-Repeat for clips 02 and 03, changing the filename in `src`.
+The site is ready for the following content, but the source files were not included with the request:
+
+- Three Noi Quattro vertical videos, documented in `media/README.md`
+- The current site deliberately focuses on the three Noi Quattro videos. The Tableau graph has been removed for now.
+
+All copy and project positioning is based on `Spyros_Diamantidis_CV.pdf`.
