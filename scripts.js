@@ -1,15 +1,28 @@
-const portfolioVideos = document.querySelectorAll(".reel-card video");
+const films = document.querySelectorAll(".film");
 
-portfolioVideos.forEach((video) => {
+films.forEach((film) => {
+  const video = film.querySelector("video");
+  const playButton = film.querySelector(".film-play");
+
+  video.controls = false;
+  playButton.hidden = false;
+
+  playButton.addEventListener("click", () => {
+    video.controls = true;
+    playButton.hidden = true;
+    video.play();
+  });
+
   video.addEventListener("play", () => {
-    portfolioVideos.forEach((otherVideo) => {
+    films.forEach((other) => {
+      const otherVideo = other.querySelector("video");
       if (otherVideo !== video) otherVideo.pause();
     });
   });
 });
 
 const revealTargets = document.querySelectorAll(
-  ".hero h1, .hero-bottom, .section-heading, .feature-project, .reels, .ferrero-intro, .ferrero-gallery, .about-section, footer"
+  ".hero h1, .hero-foot, .case-head, .case-text, .case-media, .case-gallery .shot, .about-statement, .about-body, .facts, .contact .wrap"
 );
 
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -22,12 +35,11 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         }
       });
     },
-    { threshold: 0.14 }
+    { threshold: 0.12 }
   );
 
-  revealTargets.forEach((target, index) => {
+  revealTargets.forEach((target) => {
     target.classList.add("reveal");
-    target.style.setProperty("--reveal-delay", `${Math.min(index * 70, 210)}ms`);
     revealObserver.observe(target);
   });
 }
