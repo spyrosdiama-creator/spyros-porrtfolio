@@ -36,8 +36,8 @@ em { font-style: italic; }
 .btn--sm { min-height: 44px; padding: 0 20px; font-size: 13px; }
 
 /* Navigation */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 20; border-bottom: 1px solid transparent; transition: background .4s ease, border-color .4s ease; }
-.nav.is-scrolled { border-color: var(--line); background: #0a0a0a; }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 20; border-bottom: 1px solid transparent; background: #0a0a0a; transition: border-color .4s ease; }
+.nav.is-scrolled { border-color: var(--line); }
 .nav-inner { height: var(--nav-h); display: flex; align-items: center; gap: clamp(20px, 3vw, 44px); }
 .nav-name { display: inline-flex; align-items: center; min-height: 44px; margin-right: auto; font-size: 15px; font-weight: 600; letter-spacing: -.01em; white-space: nowrap; }
 .nav-links { display: flex; gap: clamp(20px, 3vw, 44px); }
@@ -47,14 +47,14 @@ em { font-style: italic; }
 /* Hero */
 .hero { min-height: 100vh; min-height: 100svh; display: grid; grid-template-rows: 1fr auto; padding-top: var(--nav-h); }
 .hero-main { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: clamp(32px, 5vw, 96px); align-items: center; }
-.hero-copy { padding: clamp(40px, 6vh, 80px) 0; }
-.hero h1 { margin: 26px 0 44px; font-size: clamp(40px, 5.3vw, 84px); line-height: 1.08; letter-spacing: -.04em; }
+.hero-copy { padding: clamp(24px, 4vh, 80px) 0; }
+.hero h1 { margin: clamp(14px, 2.4vh, 26px) 0 clamp(24px, 4.4vh, 44px); font-size: clamp(40px, min(5.3vw, 9.4vh), 84px); line-height: 1.08; letter-spacing: -.04em; }
 .line { display: block; overflow: hidden; padding: .06em 0 .16em; margin: -.06em 0 -.16em; }
 .line > span { display: block; }
 .hero-sub { max-width: 31em; font-size: clamp(16px, 1.25vw, 19px); line-height: 1.6; color: var(--fg-2); }
-.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: clamp(20px, 3.6vh, 36px); }
 
-.reel { position: relative; align-self: stretch; min-height: 420px; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent); }
+.reel { position: relative; align-self: stretch; min-height: 320px; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent); }
 .reel-inner { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; }
 .tile { aspect-ratio: var(--ar); margin-bottom: 16px; overflow: hidden; border-radius: var(--radius); background: #161615; }
 .tile img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 50%); }
@@ -67,7 +67,7 @@ em { font-style: italic; }
 @keyframes reel-right { from { transform: translate3d(-50%, 0, 0); } to { transform: translate3d(0, 0, 0); } }
 
 .facts { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: var(--gap); border-top: 1px solid var(--line); }
-.facts > div { padding: 22px 0 26px; }
+.facts > div { padding: clamp(14px, 2.2vh, 22px) 0 clamp(16px, 2.6vh, 26px); }
 .facts dt { margin-bottom: 8px; }
 .facts dd { max-width: 26em; font-size: 15px; line-height: 1.45; }
 
@@ -93,7 +93,7 @@ figcaption { margin-top: 14px; }
 .shot-frame { overflow: hidden; border-radius: var(--radius); background: #161615; }
 .shot img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 50%); }
 .shot--hero { margin-bottom: clamp(48px, 6vw, 96px); }
-.shot--hero .shot-frame { aspect-ratio: 16 / 9; max-height: 82vh; }
+.shot--hero .shot-frame { aspect-ratio: 2 / 1; }
 .shot--tall .shot-frame { aspect-ratio: 4 / 5; }
 .shot--wide { margin-top: clamp(48px, 6vw, 96px); }
 .shot--wide .shot-frame { aspect-ratio: 2000 / 1116; }
@@ -185,4 +185,11 @@ figcaption { margin-top: 14px; }
   .nav-name { font-size: 14px; }
   .nav-inner, .nav-links { gap: 14px; }
   .nav-links a { font-size: 13px; }
+}
+
+@media (max-width: 330px) {
+  :root { --nav-h: 92px; }
+  .nav-inner { flex-wrap: wrap; align-content: center; row-gap: 0; }
+  .nav-name { flex-basis: 100%; min-height: 36px; }
+  .nav-links a { min-height: 36px; }
 }
